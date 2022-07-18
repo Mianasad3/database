@@ -1,0 +1,57 @@
+﻿@model EquipmentRental.Models.Rental
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Rental</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Customer
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Customer.UserName
+        </dd>
+        <dt class = "col-sm-2">
+            Equipment
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Equipment.Name
+        </dd>
+        <dt class = "col-sm-2">
+            Rental Hours
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.RentalHours
+        </dd>
+        <dt class = "col-sm-2">
+           Is Current Rental
+        </dt>
+        <dd class = "col-sm-10">
+             @{
+                    if(Model.IsCurrentRental == 0)
+                    {
+                            <span>No</span>
+                        }
+                        else
+                        {
+                            <span>Yes</span>
+                        }
+                }   
+        </dd>
+        <dt class = "col-sm-2">
+            Quantity
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Quantity
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
